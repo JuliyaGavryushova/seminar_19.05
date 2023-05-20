@@ -8,7 +8,7 @@ if n > 99 and n < 1000:
     sum = 0
     while n > 0:
         sum = sum + n % 10
-        temp = n // 10
-    print(sum)
+        n = n // 10
+    print(f"Сумма цифр числа равна {sum}")
 else:
     print("Вы ввели не трехзначное число!")
