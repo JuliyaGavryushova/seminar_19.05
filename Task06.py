@@ -8,6 +8,25 @@
 # 385916 -> yes
 # 123456 -> no
 
+# number = int(input("Введите шестизначный номер билета: "))
+# if number > 99999 and number < 1000000:
+#     digit1 = number // 100000
+#     digit2 = number // 10000 % 10
+#     digit3 = number // 1000 % 10
+#     digit4 = number // 100 % 10
+#     digit5 = number // 10 % 10
+#     digit6 = number % 10
+#     part1 = digit1 + digit2 + digit3
+#     part2 = digit4 + digit5 + digit6
+#     if part1 == part2:
+#         print("yes")
+#     else:
+#         print("no")
+# else:
+#     print("Вы ввели некорректный номер билета!")
+
+# (*) Усложнение. Вывод результата сделайте одной строкой, для этого используйте тернарный оператор:
+
 number = int(input("Введите шестизначный номер билета: "))
 if number > 99999 and number < 1000000:
     digit1 = number // 100000
@@ -18,9 +37,6 @@ if number > 99999 and number < 1000000:
     digit6 = number % 10
     part1 = digit1 + digit2 + digit3
     part2 = digit4 + digit5 + digit6
-    if part1 == part2:
-        print("yes")
-    else:
-        print("no")
+    print("yes" if part1 == part2 else "no")
 else:
     print("Вы ввели некорректный номер билета!")
