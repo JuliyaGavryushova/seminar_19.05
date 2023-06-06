@@ -13,7 +13,16 @@
 #         return True
 # print(prime_number(10))
 
-def prime_number(n):
+# def prime_number(n):
+#     if not isinstance(n, int):
+#         return "Error"
+#     for i in range(2, n):
+#         if n % i == 0:
+#             return False
+#     return True
+# print(prime_number(10))
+
+def prime_number(n: int) -> bool:        # Тайп хинтинг (type hints)/ Аннотация типов
     if not isinstance(n, int):
         return "Error"
     for i in range(2, n):
