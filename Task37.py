@@ -6,7 +6,7 @@
 # <function_name>(3) 8 7 9 -> '9 7 8'
 # Примечание. В программе запрещается объявлять массивы и использовать циклы (даже для ввода и вывода).
 
-def string_reverse(n):
+def string_reverse(n: int) -> str:
     string_num = input()
     if n == 1:
         return string_num
