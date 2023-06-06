@@ -5,10 +5,19 @@
 # <function_name>(13) -> True
 # <function_name>(10) -> False
 
-num = int(input("Введите число: "))
+# def prime_number(n):
+#     if isinstance(n, int):
+#         for i in range(2, n):
+#             if n % i == 0:
+#                 return False
+#         return True
+# print(prime_number(10))
+
 def prime_number(n):
+    if not isinstance(n, int):
+        return "Error"
     for i in range(2, n):
         if n % i == 0:
             return False
-        return True
-print(prime_number(num))
+    return True
+print(prime_number(10))
