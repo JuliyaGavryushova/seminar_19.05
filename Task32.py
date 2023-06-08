@@ -50,10 +50,18 @@ def indexes_elements(list_n: list, dist1: int, dist2: int) -> list:
     new_list = []
     for i in range(len(list_n)):
         if list_n[i] in range(dist1, dist2 + 1):
-            pair = (i, list_n[i],)
-            new_list.append(pair)
+            new_list.append((i, list_n[i]))
     return new_list
 
 print(indexes_elements(list_1, 2, 10))
 print(indexes_elements(list_1, 2, 9))
 print(indexes_elements(list_1, 0, 6))
+
+# list_1 = [1, 2, 3, 5, 8, 15, 23, 38]
+# def indexes_elements(list_n: list) -> list:
+#     new_list = []
+#     for i in range(len(list_n)):
+#         if list_n[i] % 2 == 0:
+#             new_list.append((list_n[i], list_n[i] ** 2))
+#     return new_list
+# print(indexes_elements(list_1))
