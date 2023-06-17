@@ -72,10 +72,10 @@ def menu():
             search = input("Кого хотите найти: ")
             print(search_user(phone_dic, search))
         if num == 5:
-            del_num = int(input("Введите id контакта, который хотите удалить: "))
-            deleting_contact(phone_dic, del_num)
+            del_cont = input("Введите первые буквы контакта, который хотите удалить: ")
+            deleting_contact(phone_dic, del_cont)
         if num == 6:
-            update_cont = int(input("Введите id контакта, который хотите изменить: "))
+            update_cont = input("Введите первые буквы контакта, который хотите изменить: ")
             update_contact(phone_dic, update_cont)
         if num == 7:
             file_name = input("Введите имя файла: ")
@@ -91,18 +91,36 @@ def export_phone_dic(phone_dic: dict, file_name: str):
 def search_user(phone_dic: dict, search: str) -> int:
     for idc, user in phone_dic.items():
         if user[0].startswith(search):
-            return idc
+            return idc, user
         
-def deleting_contact(phone_dic: dict, del_num: int) -> bool:
-    if True:
-        del phone_dic[del_num]
-        print("Контакт удален")
+def deleting_contact(phone_dic: dict, del_cont: str):
+    tmp = search_user(phone_dic, del_cont)
+    if tmp is not None:
+        idc, _ = tmp
+        phone_dic.pop(idc)
+    else: print("Контакт не найден")
+    return phone_dic
 
-def update_contact(phone_dic: dict, update_cont: int):
-    user = data_entry()
-    phone_dic[update_cont] = user
-    print("Изменения внесены")
-
+def update_contact(phone_dic: dict, update_cont: str):
+    tmp = search_user(phone_dic, update_cont)
+    if tmp is None:
+        print("Контакт не найден")
+        return phone_dic
+    idc, _ = tmp
+    new_surname = input("Введите фамилию: ")
+    new_name = input("Введите имя: ")
+    new_phone = input("Введите номер тел: ")
+    new_description = input("Введите описание: ")
+    if len(new_surname) >= 1:
+        phone_dic[idc][0] = new_surname
+    if len(new_name) >= 1:
+        phone_dic[idc][1] = new_name
+    if len(new_phone) >= 1:
+        phone_dic[idc][2] = new_phone
+    if len(new_description) >= 1:
+        phone_dic[idc][3] = new_description
+    return phone_dic
+    
 def import_phone_dic(phone_dic: dict, file_name: str):
     MAIN_DIR = abspath(dirname(__file__))
     full_name = join(MAIN_DIR, file_name + ".txt")
